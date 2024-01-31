@@ -500,7 +500,7 @@ namespace Fieldtypes.ExtendedGeneralLink
         {
             if (this.LinkType == "tel" && string.IsNullOrEmpty(((Control)this.Url).Value))
             {
-                ((Control)this.TelephoneToLink).Value = this.LinkAttributes["url"];
+                ((Control)this.TelephoneToLink).Value = this.LinkAttributes["url"].Replace("tel:", "");
             }
 
             ExtendedGeneralLinkForm.ShowContainingRow((Control)this.TelephoneToContainer);
