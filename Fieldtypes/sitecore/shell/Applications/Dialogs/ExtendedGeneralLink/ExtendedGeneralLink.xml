@@ -6,7 +6,8 @@
     <FormDialog Icon="Network/32x32/link.png" Header="Insert a link"
       Text="Select the link type and specify the appropriate properties."
       OKButton="OK">
-      <CodeBeside Type="Foundation.Platform.ExtendedGeneralLink.ExtendedGeneralLinkForm,Foundation.Platform"/>
+      <!--You need to add the CodeBeside Type according to your project solutions-->
+      <CodeBeside Type="Fieldtypes.ExtendedGeneralLink.ExtendedGeneralLinkForm,Fieldtypes"/>
 
       <DataContext ID="InternalLinkDataContext" ViewName="Master"/>
       <DataContext ID="MediaLinkDataContext" Root="{3D6658D8-A0BF-4E75-B3E2-D050FABCF4E1}"/>

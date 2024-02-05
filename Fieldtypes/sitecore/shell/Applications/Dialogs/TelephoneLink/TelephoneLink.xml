@@ -4,8 +4,8 @@
     <FormDialog Icon="Apps/32x32/Calling.png" Header="Insert a telephone link"
       Text="Please specify the telephone number address and any additional properties. When done, click OK."
       OKButton="OK">
-
-      <CodeBeside Type="Foundation.Platform.ExtendedGeneralLink.TelephoneLinkForm,Foundation.Platform"/>
+      <!--You need to add the CodeBeside Type according to your project solutions-->
+      <CodeBeside Type="Fieldtypes.ExtendedGeneralLink.TelephoneLinkForm,Fieldtypes"/>
 
       <a id="telephone"></a>
 
