@@ -66,7 +66,7 @@ namespace Fieldtypes.ExtendedGeneralLink
             {
                 UrlString urlString = new UrlString(Context.Site.XmlControlPage);
                 //urlString["xmlcontrol"] = "GeneralLink";
-                urlString["xmlcontrol"] = "ExtendedGeneralLink";  //This one line of code needed to be change in-order to work with the extended general link controls
+                urlString["xmlcontrol"] = "ExtendedGeneralLink"; // //To make it compatible with the extended general link controls, you just have to modify this single line of code.
 
                 new UrlHandle()
                 {
