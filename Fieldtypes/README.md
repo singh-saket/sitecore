@@ -18,4 +18,11 @@ In Sitecore, the General Link field type is a versatile field that allows conten
  	<li>Javascript</li>
 </ul>
 
-In this, I have extended the general link field-type and added additional feature i.e Telephone Link
+ Here, I extended the functionality of the general link field type and included a new feature, namely the Telephone Link.
+
+The blogs listed below provide instructions on how to incorporate the Telephone Link feature.
+
+- > Extending General Link for Content Editor - https://blogs.perficient.com/2024/02/07/extending-general-link-for-content-editor-mode/
+- > Extending General Link for Experience Editor - https://blogs.perficient.com/2024/02/07/extending-general-link-for-experience-editor-mode/
+
+- > **Upcoming** - Resolve Extending General Link for Experience Editor for higher environment : **_Coming Soon_**
