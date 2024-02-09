@@ -274,7 +274,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                 ((Control)this.Custom).Class = "disabled";
             }
 
-          ((Control)this.Text).Value = this.LinkAttributes["text"];
+            ((Control)this.Text).Value = this.LinkAttributes["text"];
             ((Control)this.Target).Value = linkTargetValue;
             ((Control)this.CustomTarget).Value = str;
             ((Control)this.Class).Value = this.LinkAttributes["class"];
