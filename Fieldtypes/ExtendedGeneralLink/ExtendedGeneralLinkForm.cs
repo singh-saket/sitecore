@@ -171,7 +171,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                     flag = this.SetMailToLinkAttributes(packet);
                     break;
                 case "tel":
-                    flag = SetTelephoneLinkAttributes(packet);
+                    flag = this.SetTelephoneLinkAttributes(packet);
                     break;
                 case "anchor":
                     flag = this.SetAnchorLinkAttributes(packet);
@@ -604,7 +604,7 @@ namespace Fieldtypes.ExtendedGeneralLink
 
         private void SetModeSpecificControls()
         {
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.TreeviewContainer);
+            HideContainingRow((Control)this.TreeviewContainer);
             ((Control)this.MediaPreview).Visible = false;
             ((Control)this.UploadMedia).Visible = false;
 
@@ -631,7 +631,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                     this.SetMailLinkControls();
                     break;
                 case "tel":
-                    SetTelephoneLinkControls();
+                    this.SetTelephoneLinkControls();
                     break;
                 case "anchor":
                     this.SetAnchorLinkControls();
