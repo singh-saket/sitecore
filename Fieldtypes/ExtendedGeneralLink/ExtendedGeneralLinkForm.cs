@@ -122,7 +122,7 @@ namespace Fieldtypes.ExtendedGeneralLink
             this.CurrentMode = this.LinkType ?? string.Empty;
             this.InitControls();
             this.SetModeSpecificControls();
-            ExtendedGeneralLinkForm.RegisterScripts();
+            RegisterScripts();
         }
 
         protected void OnMediaOpen()
@@ -261,7 +261,7 @@ namespace Fieldtypes.ExtendedGeneralLink
         {
             string str = string.Empty;
             string linkAttribute = this.LinkAttributes["target"];
-            string linkTargetValue = LinkForm.GetLinkTargetValue(linkAttribute);
+            string linkTargetValue = GetLinkTargetValue(linkAttribute);
             if (linkTargetValue == "Custom")
             {
                 str = linkAttribute;
@@ -357,14 +357,14 @@ namespace Fieldtypes.ExtendedGeneralLink
                 str = str.Substring(1);
             }
 
-            LinkForm.SetAttribute(packet, "url", str);
-            LinkForm.SetAttribute(packet, "anchor", str);
+            SetAttribute(packet, "url", str);
+            SetAttribute(packet, "anchor", str);
             return true;
         }
 
         private void SetAnchorLinkControls()
         {
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.LinkAnchor);
+            ShowContainingRow((Control)this.LinkAnchor);
             string str = this.LinkAttributes["anchor"];
             if (this.LinkType != "anchor" && string.IsNullOrEmpty(((Control)this.LinkAnchor).Value))
             {
@@ -383,10 +383,10 @@ namespace Fieldtypes.ExtendedGeneralLink
         private void SetCommonAttributes(Packet packet)
         {
             Assert.ArgumentNotNull((object)packet, nameof(packet));
-            LinkForm.SetAttribute(packet, "linktype", this.CurrentMode);
-            LinkForm.SetAttribute(packet, "text", (Control)this.Text);
-            LinkForm.SetAttribute(packet, "title", (Control)this.Title);
-            LinkForm.SetAttribute(packet, "class", (Control)this.Class);
+            SetAttribute(packet, "linktype", this.CurrentMode);
+            SetAttribute(packet, "text", (Control)this.Text);
+            SetAttribute(packet, "title", (Control)this.Title);
+            SetAttribute(packet, "class", (Control)this.Class);
         }
 
         private bool SetExternalLinkAttributes(Packet packet)
@@ -399,9 +399,9 @@ namespace Fieldtypes.ExtendedGeneralLink
             }
 
             string attributeFromValue = LinkForm.GetLinkTargetAttributeFromValue(((Control)this.Target).Value, ((Control)this.CustomTarget).Value);
-            LinkForm.SetAttribute(packet, "url", str);
-            LinkForm.SetAttribute(packet, "anchor", string.Empty);
-            LinkForm.SetAttribute(packet, "target", attributeFromValue);
+            SetAttribute(packet, "url", str);
+            SetAttribute(packet, "anchor", string.Empty);
+            SetAttribute(packet, "target", attributeFromValue);
             return true;
         }
 
@@ -412,9 +412,9 @@ namespace Fieldtypes.ExtendedGeneralLink
                 ((Control)this.Url).Value = this.LinkAttributes["url"];
             }
 
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.UrlContainer);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.Target);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.CustomTarget);
+            ShowContainingRow((Control)this.UrlContainer);
+            ShowContainingRow((Control)this.Target);
+            ShowContainingRow((Control)this.CustomTarget);
             this.SectionHeader.Text = Translate.Text("Specify the URL, e.g. http://www.sitecore.net and any additional properties.");
         }
 
@@ -435,10 +435,10 @@ namespace Fieldtypes.ExtendedGeneralLink
                 str = str.Substring(1);
             }
 
-            LinkForm.SetAttribute(packet, "anchor", (Control)this.LinkAnchor);
-            LinkForm.SetAttribute(packet, "querystring", str);
-            LinkForm.SetAttribute(packet, "target", attributeFromValue);
-            LinkForm.SetAttribute(packet, "id", selectionItem.ID.ToString());
+            SetAttribute(packet, "anchor", (Control)this.LinkAnchor);
+            SetAttribute(packet, "querystring", str);
+            SetAttribute(packet, "target", attributeFromValue);
+            SetAttribute(packet, "id", selectionItem.ID.ToString());
             return true;
         }
 
@@ -448,18 +448,18 @@ namespace Fieldtypes.ExtendedGeneralLink
             ((Control)this.InternalLinkTreeviewContainer).Visible = true;
             ((Control)this.MediaLinkTreeviewContainer).Visible = false;
 
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.TreeviewContainer);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.Querystring);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.LinkAnchor);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.Target);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.CustomTarget);
+            ShowContainingRow((Control)this.TreeviewContainer);
+            ShowContainingRow((Control)this.Querystring);
+            ShowContainingRow((Control)this.LinkAnchor);
+            ShowContainingRow((Control)this.Target);
+            ShowContainingRow((Control)this.CustomTarget);
 
             this.SectionHeader.Text = Translate.Text("Select the item that you want to create a link to and specify the appropriate properties.");
         }
 
         private void SetJavaScriptLinkControls()
         {
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.JavascriptCode);
+            ShowContainingRow((Control)this.JavascriptCode);
             string str = this.LinkAttributes["url"];
             if (this.LinkType != "javascript" && string.IsNullOrEmpty(((Control)this.JavascriptCode).Value))
             {
@@ -480,8 +480,8 @@ namespace Fieldtypes.ExtendedGeneralLink
                 str = "javascript:" + str;
             }
 
-            LinkForm.SetAttribute(packet, "url", str);
-            LinkForm.SetAttribute(packet, "anchor", string.Empty);
+            SetAttribute(packet, "url", str);
+            SetAttribute(packet, "anchor", string.Empty);
             return true;
         }
 
@@ -492,7 +492,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                 ((Control)this.MailToLink).Value = this.LinkAttributes["url"];
             }
 
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.MailToContainer);
+            ShowContainingRow((Control)this.MailToContainer);
             this.SectionHeader.Text = Translate.Text("Specify the email address and any additional properties. To send a test mail use the 'Send a test mail' button.");
         }
 
@@ -503,7 +503,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                 ((Control)this.TelephoneToLink).Value = this.LinkAttributes["url"].Replace("tel:", "");
             }
 
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.TelephoneToContainer);
+            ShowContainingRow((Control)this.TelephoneToContainer);
             this.SectionHeader.Text = Translate.Text("Specify the Telephone, e.g. 9006662121");
         }
 
@@ -523,8 +523,8 @@ namespace Fieldtypes.ExtendedGeneralLink
                 str2 = "mailto:" + str2;
             }
 
-            LinkForm.SetAttribute(packet, "url", str2 ?? string.Empty);
-            LinkForm.SetAttribute(packet, "anchor", string.Empty);
+            SetAttribute(packet, "url", str2 ?? string.Empty);
+            SetAttribute(packet, "anchor", string.Empty);
             return true;
         }
 
@@ -538,8 +538,8 @@ namespace Fieldtypes.ExtendedGeneralLink
                 return false;
             }
 
-            LinkForm.SetAttribute(packet, "url", tel ?? string.Empty);
-            LinkForm.SetAttribute(packet, "anchor", string.Empty);
+            SetAttribute(packet, "url", tel ?? string.Empty);
+            SetAttribute(packet, "anchor", string.Empty);
             return true;
         }
 
@@ -579,8 +579,8 @@ namespace Fieldtypes.ExtendedGeneralLink
             }
 
             string attributeFromValue = LinkForm.GetLinkTargetAttributeFromValue(((Control)this.Target).Value, ((Control)this.CustomTarget).Value);
-            LinkForm.SetAttribute(packet, "target", attributeFromValue);
-            LinkForm.SetAttribute(packet, "id", selectionItem.ID.ToString());
+            SetAttribute(packet, "target", attributeFromValue);
+            SetAttribute(packet, "id", selectionItem.ID.ToString());
             return true;
         }
 
@@ -596,9 +596,9 @@ namespace Fieldtypes.ExtendedGeneralLink
                 this.UpdateMediaPreview(folder);
             }
 
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.TreeviewContainer);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.Target);
-            ExtendedGeneralLinkForm.ShowContainingRow((Control)this.CustomTarget);
+            ShowContainingRow((Control)this.TreeviewContainer);
+            ShowContainingRow((Control)this.Target);
+            ShowContainingRow((Control)this.CustomTarget);
             this.SectionHeader.Text = Translate.Text("Select an item from the media library and specify any additional properties.");
         }
 
@@ -608,14 +608,14 @@ namespace Fieldtypes.ExtendedGeneralLink
             ((Control)this.MediaPreview).Visible = false;
             ((Control)this.UploadMedia).Visible = false;
 
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.UrlContainer);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.Querystring);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.MailToContainer);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.TelephoneToContainer);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.LinkAnchor);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.JavascriptCode);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.Target);
-            ExtendedGeneralLinkForm.HideContainingRow((Control)this.CustomTarget);
+            HideContainingRow((Control)this.UrlContainer);
+            HideContainingRow((Control)this.Querystring);
+            HideContainingRow((Control)this.MailToContainer);
+            HideContainingRow((Control)this.TelephoneToContainer);
+            HideContainingRow((Control)this.LinkAnchor);
+            HideContainingRow((Control)this.JavascriptCode);
+            HideContainingRow((Control)this.Target);
+            HideContainingRow((Control)this.CustomTarget);
             switch (this.CurrentMode)
             {
                 case "internal":

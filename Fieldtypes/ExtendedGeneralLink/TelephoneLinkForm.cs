@@ -50,12 +50,12 @@ namespace Fieldtypes.ExtendedGeneralLink
             else
             {
                 Packet packet = new Packet("link", Array.Empty<string>());
-                LinkForm.SetAttribute(packet, "text", (Control)this.Text);
-                LinkForm.SetAttribute(packet, "linktype", "tel");
-                LinkForm.SetAttribute(packet, "url", tel);
-                LinkForm.SetAttribute(packet, "anchor", string.Empty);
-                LinkForm.SetAttribute(packet, "title", (Control)this.Title);
-                LinkForm.SetAttribute(packet, "class", (Control)this.Class);
+                SetAttribute(packet, "text", (Control)this.Text);
+                SetAttribute(packet, "linktype", "tel");
+                SetAttribute(packet, "url", tel);
+                SetAttribute(packet, "anchor", string.Empty);
+                SetAttribute(packet, "title", (Control)this.Title);
+                SetAttribute(packet, "class", (Control)this.Class);
                 SheerResponse.SetDialogValue(packet.OuterXml);
                 base.OnOK(sender, args);
             }

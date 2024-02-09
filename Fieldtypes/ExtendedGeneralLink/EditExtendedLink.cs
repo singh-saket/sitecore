@@ -50,7 +50,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                     return;
                 }
 
-                string str = EditExtendedLink.RenderLink(args).ToString();
+                string str = RenderLink(args).ToString();
                 SheerResponse.SetAttribute("scHtmlValue", "value", string.IsNullOrEmpty(str) ? WebEditLinkCommand.GetDefaultText() : str);
                 SheerResponse.SetAttribute("scPlainValue", "value", args.Result + str);
                 ScriptInvokationBuilder invokationBuilder = new ScriptInvokationBuilder("scSetHtmlValue");
@@ -102,7 +102,7 @@ namespace Fieldtypes.ExtendedGeneralLink
                 SafeDictionary<string> safeDictionary = new SafeDictionary<string>();
                 if (!string.IsNullOrEmpty(parameter5))
                 {
-                    safeDictionary = EditExtendedLink.ParseParameters(parameter5);
+                    safeDictionary = ParseParameters(parameter5);
                 }
 
                 fieldRenderer.Item = obj;

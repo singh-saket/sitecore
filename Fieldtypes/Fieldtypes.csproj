@@ -131,6 +131,7 @@
     <Content Include="sitecore\shell\Applications\Dialogs\ExtendedGeneralLink\ExtendedGeneralLink.js" />
     <Content Include="sitecore\shell\Applications\Dialogs\ExtendedGeneralLink\ExtendedGeneralLink.xml" />
     <Content Include="sitecore\shell\Applications\Dialogs\TelephoneLink\TelephoneLink.xml" />
+    <Content Include="App_Config\Include\Fieldtypes\Fieldtypes.ExtendedGeneralLink.Sitecore.Reflection.Filtering.Patch.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
