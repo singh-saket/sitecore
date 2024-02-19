@@ -66,6 +66,12 @@
     <Reference Include="Sitecore.Mvc.Analytics, Version=17.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Sitecore.Mvc.Analytics.10.2.0\lib\net48\Sitecore.Mvc.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.XA.Foundation.Multisite, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Sitecore.XA.Foundation.Multisite.10.2.0\lib\net48\Sitecore.XA.Foundation.Multisite.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Sitecore.XA.Foundation.SitecoreExtensions.10.2.0\lib\net48\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="sysglobl" />
     <Reference Include="System.AppContext" />
     <Reference Include="System.Console" />
@@ -140,6 +146,7 @@
     <Compile Include="ExtendedGeneralLink\ExtendedGeneralLinkRender.cs" />
     <Compile Include="ExtendedGeneralLink\ExtendedLink.cs" />
     <Compile Include="ExtendedGeneralLink\TelephoneLinkForm.cs" />
+    <Compile Include="ExtendedGeneralLink\UpdatedExtendedGeneralLinkForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
