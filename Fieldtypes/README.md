@@ -41,7 +41,7 @@ The blogs listed below provide instructions on how to incorporate the Telephone 
 - > Extending General Link for Content Editor - https://blogs.perficient.com/2024/02/07/extending-general-link-for-content-editor-mode/
 - > Extending General Link for Experience Editor - https://blogs.perficient.com/2024/02/07/extending-general-link-for-experience-editor-mode/
 
-- > **Upcoming** - Extending General Link for Experience Editor Alternate Approach : **_Coming Soon_**
-- > **Upcoming** - Resolve Extending General Link for Experience Editor for higher environment : **_Coming Soon_**
+- > Extending General Link for Experience Editor Alternate Approach - https://blogs.perficient.com/2024/02/21/extending-general-link-for-experience-editor-alternate-approach/
+- > **Upcoming** - Handling Not Allowed Reflection Method in Sitecore : **_Coming Soon_**
 
 
